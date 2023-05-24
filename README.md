@@ -1,4 +1,4 @@
-# Getting a Character Index
+# Getting The Character Index
 
 Beginner level task for practicing loops (for, while, do..while).
 
