@@ -6,14 +6,51 @@ namespace GettingCharIndex
     {
         public static int GetIndexOfChar(string? str, char value)
         {
-            // TODO #3. Analyze the implementation of "GetLastIndexOfChar(string, char)" method to see how "while" loop works, and implement the method using the "while" loop statement.
-            throw new NotImplementedException();
+            if (str == null)
+            {
+                throw new ArgumentNullException(nameof(str));
+            }
+
+            int index = 0;
+            while (index < str.Length)
+            {
+                if (str[index] == value)
+                {
+                    return index;
+                }
+
+                index++;
+            }
+
+            return -1;
         }
 
         public static int GetIndexOfChar(string? str, char value, int startIndex, int count)
         {
-            // TODO #4. Analyze the implementation of "GetLastIndexOfChar(string, char, int, int)" method to see how "while" loop works, and implement the method using the "while" loop statement.
-            throw new NotImplementedException();
+            if (str == null)
+            {
+                throw new ArgumentNullException(nameof(str));
+            }
+
+            if (startIndex < 0 || count < 0 || startIndex + count > str.Length)
+            {
+                throw new ArgumentOutOfRangeException(nameof(startIndex));
+            }
+
+            int endIndex = startIndex + count - 1;
+            int index = startIndex;
+
+            while (index <= endIndex)
+            {
+                if (str[index] == value)
+                {
+                    return index;
+                }
+
+                index++;
+            }
+
+            return -1;
         }
 
         public static int GetLastIndexOfChar(string? str, char value)

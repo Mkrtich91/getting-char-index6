@@ -6,14 +6,45 @@ namespace GettingCharIndex
     {
         public static int GetIndexOfChar(string? str, char value)
         {
-            // TODO #1. Analyze the implementation of "GetLastIndexOfChar(string, char)" method to see how "for" loop works, and implement the method using the "for" loop statement.
-            throw new NotImplementedException();
+            if (str == null)
+            {
+                throw new ArgumentNullException(nameof(str));
+            }
+
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (str[i] == value)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
         }
 
         public static int GetIndexOfChar(string? str, char value, int startIndex, int count)
         {
-            // TODO #2. Analyze the implementation of "GetLastIndexOfChar(string, char, int, int)" method to see how "for" loop works, and implement the method using the "for" loop statement.
-            throw new NotImplementedException();
+            if (str == null)
+            {
+                throw new ArgumentNullException(nameof(str));
+            }
+
+            int endIndex = startIndex + count - 1;
+
+            if (endIndex >= str.Length || startIndex < 0 || count < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(count));
+            }
+
+            for (int i = startIndex; i <= endIndex; i++)
+            {
+                if (str[i] == value)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
         }
 
         public static int GetLastIndexOfChar(string? str, char value)
